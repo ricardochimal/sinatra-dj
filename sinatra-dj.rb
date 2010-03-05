@@ -15,6 +15,11 @@ configure do
   )
 end
 
+configure :production do
+	ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+	require 'newrelic_rpm'
+end
+
 class Translation < ActiveRecord::Base
   after_create :queue
 

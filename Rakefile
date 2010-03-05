@@ -6,7 +6,7 @@ task :create do
   sh "heroku create"
   sh "git push heroku master"
   sh "heroku rake db:migrate"
-  sh "heroku addons:add dj"
+  sh "heroku workers +1"
   sh "heroku open"
 end
 
